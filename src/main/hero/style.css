@@ -1,0 +1,24 @@
+.main .hero{
+    text-align: center;
+}
+.main .hero .grid {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 50px;
+}
+.main .hero .grid .grid-comp{
+    width: 75px;
+    height: 75px;
+    border: 1px solid black;
+}
+.main .hero .grid .grid-comp img{
+    width: 75px;
+    height: auto;
+    cursor: pointer;
+    display: none;   
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}

@@ -1,0 +1,15 @@
+.selected{
+    background: lightcyan;
+}
+.display{
+    display: block;
+}
+
+/* ============================================= */
+.main{
+    display: flex;
+    justify-content: space-between;
+    padding: 80px 40px 40px 40px;
+}
+
+

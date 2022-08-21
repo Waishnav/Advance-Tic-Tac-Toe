@@ -1,0 +1,29 @@
+.main .right-side-bar .right {
+    text-align: center;
+    width: 75px;
+    height: 80px;
+    border: 1px solid black;
+    margin: 25px 0;
+    background-image: url('../../images/cross.png');
+    background-repeat: no-repeat;
+    background-position: 50% 75%;
+}
+#right-1{background-size: 25px 25px;}
+#right-2{background-size: 35px 35px;}
+#right-3{background-size: 45px 45px;}
+#right-4{background-size: 55px 55px;}
+
+.right-side-bar h1{border-bottom: 1px solid black; padding: 5px;}
+
+.right-side-bar{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.right-side-bar .freq{
+    text-align: center;
+    width: 75px;
+    height: 80px;
+    margin: 25px 0;
+}
+

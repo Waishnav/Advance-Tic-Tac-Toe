@@ -1,0 +1,28 @@
+.main .left-side-bar .left {
+    text-align: center;
+    width: 75px;
+    height: 80px;
+    border: 1px solid black;
+    margin: 25px 0;
+    background-image: url('../../images/circle.png');
+    background-repeat: no-repeat;
+    background-position: 50% 75%;
+}
+#left-1{background-size: 25px 25px;}
+#left-2{background-size: 35px 35px;}
+#left-3{background-size: 45px 45px;}
+#left-4{background-size: 55px 55px;}
+
+.left-side-bar h1{border-bottom: 1px solid black; padding: 5px;}
+
+.left-side-bar{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.left-side-bar .freq{
+    text-align: center;
+    width: 75px;
+    height: 80px;
+    margin: 25px 0;
+}
