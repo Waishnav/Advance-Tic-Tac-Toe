@@ -5,11 +5,11 @@ import RightSideBar from './right-side-bar/rightSideBar'
 import Hero from './hero/hero'
 
 const Main = () => {
-  
+
   const [turn,setTurn] = useState("Circle")
   const [moves,setMoves] = useState(0)
   const [boardPlay, setBoardPlay] = useState([false,false,false,false,false,false,false,false])
-  const [boardPositions, setboardPositions] = useState(["None","None","None","None","None","None","None","None","None"])  
+  const [boardPositions, setboardPositions] = useState(["None","None","None","None","None","None","None","None","None"])
   const [selection,setSelection] = useState(false)
   const [frequency, setfrequency] = useState({'left-1':0,'left-2':0,'left-3':0,'left-4':0,'right-1':0,'right-2':0,'right-3':0,'right-4':0})
   //id win conditions //1 2 3 -- 4 5 6 -- 7 8 9  //1 4 7 -- 2 5 8 -- 3 6 9 //1 5 9 -- 3 5 7
@@ -25,6 +25,8 @@ const Main = () => {
     for(let i=1;i<10;i++){
         document.querySelector(`.circle${i}`).style.display = "none"
         document.querySelector(`.cross${i}`).style.display = "none"
+        document.querySelector('.right-side-bar').style.opacity = "1.0"
+        document.querySelector('.left-side-bar').style.opacity = "1.0"
         boardPlay[i-1] = false;
     }
     setMoves(0)
@@ -43,29 +45,33 @@ const Main = () => {
         if(boardPlay[eventId-1] === true){
             if (parseInt(selection.slice(-1)) <= parseInt((boardPositions[eventId-1]).slice(-1))){
                 return
-            } else { 
+            } else {
 
              }
         }
         boardPlay[eventId-1] = true
         setMoves(moves + 1)
-        if(turn === "Circle"){            
-            document.querySelector(`.cross${event.target.id}`).style.display = "none"
-            document.querySelector(`.circle${event.target.id}`).style.display = "block"
-            document.querySelector(`.circle${event.target.id}`).style.width = `${id_to_width[selection]}px`
-            boardPositions[eventId-1] = `circle${selection.slice(-1)}`
+        if(turn === "Circle"){
+            document.querySelector(`.cross${event.target.id}`).style.display = "none";
+            document.querySelector(`.circle${event.target.id}`).style.display = "block";
+            document.querySelector(`.circle${event.target.id}`).style.width = `${id_to_width[selection]}px`;
+            boardPositions[eventId-1] = `circle${selection.slice(-1)}`;
+            document.querySelector('.right-side-bar').style.opacity = "1.0";
+            document.querySelector('.left-side-bar').style.opacity = "0.5";
         } else {
-            document.querySelector(`.circle${event.target.id}`).style.display = "none"
-            document.querySelector(`.cross${event.target.id}`).style.display = "block"
-            document.querySelector(`.cross${event.target.id}`).style.width = `${id_to_width[selection]}px`
-            boardPositions[eventId-1] = `cross${selection.slice(-1)}`
+            document.querySelector(`.circle${event.target.id}`).style.display = "none";
+            document.querySelector(`.cross${event.target.id}`).style.display = "block";
+            document.querySelector(`.cross${event.target.id}`).style.width = `${id_to_width[selection]}px`;
+            boardPositions[eventId-1] = `cross${selection.slice(-1)}`;
+            document.querySelector('.left-side-bar').style.opacity = "1.0";
+            document.querySelector('.right-side-bar').style.opacity = "0.5";
         }
 
         frequency[selection] += 1
         checkWin();
-    } else { return alert("Select something") }
+    } else { return alert("Select something.") }
   }
-  
+
   //left & right sidebar selection
   function select(event){
     if (selection === false){
@@ -90,7 +96,7 @@ const Main = () => {
                 }
         }
     }
-  
+
     //to check if someone wins
   let checkWin = ()=>{
     let circle = []
@@ -106,6 +112,8 @@ const Main = () => {
             if(circle[i] === item[0]){
                 if((circle.indexOf(item[1]) !== -1) && (circle.indexOf(item[2]) !== -1)){
                     alert('Circle won the game')
+                    document.querySelector('.right-side-bar').style.opacity = "1.0"
+                    document.querySelector('.left-side-bar').style.opacity = "1.0"
                     return
                 }
             }
@@ -114,25 +122,31 @@ const Main = () => {
             if(cross[i] === item[0]){
                 if((cross.indexOf(item[1]) !== -1) && (cross.indexOf(item[2]) !== -1)){
                     alert('Cross won the game')
+                    document.querySelector('.right-side-bar').style.opacity = "1.0"
+                    document.querySelector('.left-side-bar').style.opacity = "1.0"
                     return
                 }
             }
         }
         if(boardPositions.indexOf("None") === -1){
             alert("It's a draw Idiots")
+            document.querySelector('.right-side-bar').style.opacity = "1.0"
+            document.querySelector('.left-side-bar').style.opacity = "1.0"
             clearBoard()
             return
         }
     })
   }
-  
+
   useEffect(()=>{
     const left = document.querySelectorAll('.left')
     const right = document.querySelectorAll('.right')
     if (moves % 2 === 0){
         setTurn("Circle")
+        //document.getElementsByClassName('right-side-bar').style.opacity = "0.5";
     } else {
         setTurn("Cross")
+        //document.getElementsByClassName('left-side-bar').style.opacity = "0.5";
     }
     for(let i=0;i<4;i++){
         left[i].classList.remove('selected')
@@ -140,11 +154,11 @@ const Main = () => {
     }
     setSelection(false)
   },[moves])
-    
+
     return(
         <div className="main">
             <LeftSideBar select={select} frequency={frequency}/>
-            <Hero clearBoard={clearBoard} play={play} turn={turn} />
+            <Hero clearBoard={clearBoard} play={play} turn={turn}/>
             <RightSideBar select={select} frequency={frequency}/>
         </div>
     )

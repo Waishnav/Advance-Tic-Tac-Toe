@@ -9,7 +9,38 @@
 .main{
     display: flex;
     justify-content: space-between;
-    padding: 80px 40px 40px 40px;
+    padding: 40px 40px 40px 40px;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
+.clear-boardPlay {
+    background-color: rgba(250, 232, 70, 0.7);
+    padding: 10px 25px;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 2rem;
+    transition: transform .1s;
+}
+.clear-boardPlay svg {
+    padding-left: 8px;
+    transition: transform .5s;
 
+}
+/*
+.clear-boardPlay:hover {
+    transform: translateX(0.1rem);
+
+}
+*/
+.clear-boardPlay:hover svg {
+    transform: translateX(0.5rem);
+
+}
+
+.focus {
+    opacity: 1.0;
+}
+
+.not-focus {
+    opacity: 0.5
+}

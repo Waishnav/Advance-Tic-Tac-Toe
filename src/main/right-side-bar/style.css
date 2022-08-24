@@ -1,29 +1,58 @@
 .main .right-side-bar .right {
     text-align: center;
-    width: 75px;
+    width: 80px;
     height: 80px;
-    border: 1px solid black;
-    margin: 25px 0;
-    background-image: url('../../images/cross.png');
+    background-color: #F9CB86;
+    border-radius: 0.5rem;
+    background-image: url('../../images/cross-darkyellow.png');
     background-repeat: no-repeat;
-    background-position: 50% 75%;
+    background-position: 50% 55%;
 }
+
+.main .right-side-bar .right:active {
+    background-color: #c9a165;
+}
+
 #right-1{background-size: 25px 25px;}
-#right-2{background-size: 35px 35px;}
-#right-3{background-size: 45px 45px;}
-#right-4{background-size: 55px 55px;}
+#right-2{background-size: 33px 33px;}
+#right-3{background-size: 42px 42px;}
+#right-4{background-size: 50px 50px;}
 
 .right-side-bar h1{border-bottom: 1px solid black; padding: 5px;}
 
 .right-side-bar{
     display: flex;
-    flex-direction: row;
-    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    transition: transform .5s;
+
 }
 .right-side-bar .freq{
+    position: relative;
+    top: -10px;
+    left: 60px;
+    height: 20px;
+    width: 20px;
     text-align: center;
-    width: 75px;
-    height: 80px;
-    margin: 25px 0;
+    background-color: #433521;
+    border-radius: 100%;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    padding: 8px;
 }
 
+/* Small screens */
+@media only screen and (max-width: 768px) {
+    .right-side-bar{
+        flex-direction: row;
+        height: 200px;
+    }
+}
+/* Large screens */
+@media only screen and (min-width: 768px) {
+    .right-side-bar{
+        flex-direction: column;
+        width: 200px;
+    }
+}

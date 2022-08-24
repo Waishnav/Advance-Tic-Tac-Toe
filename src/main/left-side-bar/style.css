@@ -1,13 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
 .main .left-side-bar .left {
     text-align: center;
-    width: 75px;
+    width: 80px;
     height: 80px;
-    border: 1px solid black;
-    margin: 25px 0;
-    background-image: url('../../images/circle.png');
+    background-color: #F9CB86;
+    border-radius: 0.5rem;
+    background-image: url('../../images/circle-darkyellow.png');
     background-repeat: no-repeat;
-    background-position: 50% 75%;
+    background-position: 50% 55%;
 }
+
+.main .left-side-bar .left:active {
+    background-color: #c9a165;
+}
+
 #left-1{background-size: 25px 25px;}
 #left-2{background-size: 35px 35px;}
 #left-3{background-size: 45px 45px;}
@@ -17,12 +23,36 @@
 
 .left-side-bar{
     display: flex;
-    flex-direction: row;
-    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    transition: transform .5s;
 }
 .left-side-bar .freq{
+    position: relative;
+    top: -10px;
+    left: 60px;
+    height: 20px;
+    width: 20px;
     text-align: center;
-    width: 75px;
-    height: 80px;
-    margin: 25px 0;
+    background-color: #433521;
+    border-radius: 100%;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    padding: 8px;
+}
+
+/* Small screens */
+@media only screen and (max-width: 768px) {
+    .left-side-bar{
+        flex-direction: row;
+        height: 200px;
+    }
+}
+/* Large screens */
+@media only screen and (min-width: 768px) {
+    .left-side-bar{
+        flex-direction: column;
+        width: 200px;
+    }
 }

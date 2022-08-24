@@ -1,6 +1,5 @@
 import Navbar from './navbar/navbar';
 import Main from './main/main';
-import {useState, useEffect} from "react"
 
 function App() {
 

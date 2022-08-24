@@ -1,5 +1,8 @@
 .main .hero{
-    text-align: center;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .main .hero .grid {
     margin-top: 50px;
@@ -10,13 +13,17 @@
 .main .hero .grid .grid-comp{
     width: 75px;
     height: 75px;
-    border: 1px solid black;
+    background-color: lightblue;
+    border-radius: 0.6rem;
+}
+.main .hero .grid .grid-comp:active{
+    background-color: #58a6bf;
 }
 .main .hero .grid .grid-comp img{
     width: 75px;
     height: auto;
     cursor: pointer;
-    display: none;   
+    display: none;
     position: relative;
     left: 50%;
     top: 50%;
