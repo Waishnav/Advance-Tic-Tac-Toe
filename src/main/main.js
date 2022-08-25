@@ -58,6 +58,9 @@ const Main = () => {
             boardPositions[eventId-1] = `circle${selection.slice(-1)}`;
             document.querySelector('.right-side-bar').style.opacity = "1.0";
             document.querySelector('.left-side-bar').style.opacity = "0.5";
+            for(let i = 0; i < 4; i++){
+                document.getElementsByClassName('right')[i].style.backgroundColor = "#F9CB86";
+            }
         } else {
             document.querySelector(`.circle${event.target.id}`).style.display = "none";
             document.querySelector(`.cross${event.target.id}`).style.display = "block";
@@ -65,6 +68,9 @@ const Main = () => {
             boardPositions[eventId-1] = `cross${selection.slice(-1)}`;
             document.querySelector('.left-side-bar').style.opacity = "1.0";
             document.querySelector('.right-side-bar').style.opacity = "0.5";
+            for(let i = 0; i < 4; i++){
+                document.getElementsByClassName('left')[i].style.backgroundColor = "#F9CB86";
+            }
         }
 
         frequency[selection] += 1
@@ -76,22 +82,20 @@ const Main = () => {
   function select(event){
     if (selection === false){
         if ((turn === "Circle")&&(event.target.className === "left")){
-        document.querySelector(`#${event.target.id}`).classList.add('selected')
+        document.querySelector(`#${event.target.id}`).style = "background-color: #c9a165;"
         setSelection(`${event.target.id}`)
         }
         if ((turn === "Cross")&&(event.target.className === "right")){
-            document.querySelector(`#${event.target.id}`).classList.add('selected')
+            document.querySelector(`#${event.target.id}`).style = "background-color: #c9a165;"
             setSelection(`${event.target.id}`)
             }
         } else {
             if ((turn === "Circle")&&(event.target.className === "left")){
-                for(let i=0;i<4;i++){left[i].classList.remove('selected')}
-                document.querySelector(`#${event.target.id}`).classList.add('selected')
+                document.querySelector(`#${event.target.id}`).style = "background-color: #c9a165;"
                 setSelection(`${event.target.id}`)
                 }
             if ((turn === "Cross")&&(event.target.className === "right")){
-                for(let i=0;i<4;i++){right[i].classList.remove('selected')}
-                document.querySelector(`#${event.target.id}`).classList.add('selected')
+                document.querySelector(`#${event.target.id}`).style = "background-color: #c9a165;"
                 setSelection(`${event.target.id}`)
                 }
         }
@@ -143,10 +147,8 @@ const Main = () => {
     const right = document.querySelectorAll('.right')
     if (moves % 2 === 0){
         setTurn("Circle")
-        //document.getElementsByClassName('right-side-bar').style.opacity = "0.5";
     } else {
         setTurn("Cross")
-        //document.getElementsByClassName('left-side-bar').style.opacity = "0.5";
     }
     for(let i=0;i<4;i++){
         left[i].classList.remove('selected')

@@ -1,6 +1,10 @@
 .selected{
-    background: lightcyan;
+    background-color: #c9a165;
 }
+.non-selected{
+    background-color: #F9CB86;
+}
+
 .display{
     display: block;
 }
@@ -9,17 +13,20 @@
 .main{
     display: flex;
     justify-content: space-between;
-    padding: 40px 40px 40px 40px;
+    padding: 40px 100px;
     flex-wrap: wrap;
     align-items: center;
+    font-family: 'Poppins';
+    width: 78%;
+    margin: auto;
 }
 
 .clear-boardPlay {
     background-color: rgba(250, 232, 70, 0.7);
     padding: 10px 25px;
     font-family: 'Poppins', sans-serif;
-    margin-top: 2rem;
     transition: transform .1s;
+    text-align: center;
 }
 .clear-boardPlay svg {
     padding-left: 8px;
@@ -43,4 +50,16 @@
 
 .not-focus {
     opacity: 0.5
+}
+/* small */
+@media only screen and (max-width: 900px) {
+    .main {
+        padding: 20px 20px;
+    }
+}
+/* large */
+@media only screen and (min-width: 900px) {
+    .main {
+        padding: 40px 100px;
+    }
 }
