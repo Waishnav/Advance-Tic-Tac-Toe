@@ -7,7 +7,6 @@
 .main .hero .grid {
     display: grid;
     grid-template-columns: auto auto auto;
-    grid-gap: 50px;
 }
 .main .hero .grid .grid-comp{
     width: 75px;
@@ -36,10 +35,16 @@
     .grid {
         margin-top: 0rem;
     }
+    .main .hero .grid {
+        grid-gap: 20px;
+    }
 }
 /* Large screens */
 @media only screen and (min-width: 900px) {
     .grid {
         margin-top: 40px;
+    }
+    .main .hero .grid {
+        grid-gap: 50px;
     }
 }

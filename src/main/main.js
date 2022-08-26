@@ -28,6 +28,10 @@ const Main = () => {
         document.querySelector('.right-side-bar').style.opacity = "1.0"
         document.querySelector('.left-side-bar').style.opacity = "1.0"
         boardPlay[i-1] = false;
+        for(let i = 0; i < 4; i++){
+            document.getElementsByClassName('right')[i].style.backgroundColor = "#F9CB86";
+            document.getElementsByClassName('left')[i].style.backgroundColor = "#F9CB86";
+        }
     }
     setMoves(0)
     setboardPositions(["None","None","None","None","None","None","None","None","None"])
@@ -158,11 +162,18 @@ const Main = () => {
   },[moves])
 
     return(
+        <div>
         <div className="main">
             <LeftSideBar select={select} frequency={frequency}/>
             <Hero clearBoard={clearBoard} play={play} turn={turn}/>
             <RightSideBar select={select} frequency={frequency}/>
         </div>
+        <div>
+            <button onClick={clearBoard} className='clear-boardPlay'>Clear Board <svg width="21" height="8" viewBox="0 0 21 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 2.99996L-8.78384e-08 2.99996L8.78384e-08 4.99996L1 4.99996L1 2.99996ZM1 4.99996L20 4.99996L20 2.99996L1 2.99996L1 4.99996ZM16.129 4.23014e-08C16.129 2.73026 18.2792 5 21 5L21 3C19.4451 3 18.129 1.68801 18.129 -4.23014e-08L16.129 4.23014e-08ZM21 3C18.2792 3 16.1289 5.2697 16.1289 8H18.1289C18.1289 6.31201 19.445 5 21 5V3Z" fill="#0D0D0D"/>
+</svg></button>
+        </div>
+        </div>
+
     )
 }
 

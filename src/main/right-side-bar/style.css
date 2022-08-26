@@ -1,7 +1,7 @@
 .main .right-side-bar .right {
     text-align: center;
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     background-color: #F9CB86;
     border-radius: 0.5rem;
     background-image: url('../../images/cross-darkyellow.png');
@@ -9,10 +9,10 @@
     background-position: 50% 55%;
 }
 
-#right-1{background-size: 25px 25px;}
-#right-2{background-size: 33px 33px;}
-#right-3{background-size: 42px 42px;}
-#right-4{background-size: 50px 50px;}
+#right-1{background-size: 22px 22px;}
+#right-2{background-size: 30px 30px;}
+#right-3{background-size: 38px 38px;}
+#right-4{background-size: 45px 45px;}
 
 .right-side-bar h1{
     border-bottom: 1px solid black;
@@ -38,8 +38,6 @@
 }
 .right-side-bar .freq{
     position: relative;
-    top: -10px;
-    left: 60px;
     height: 20px;
     width: 20px;
     text-align: center;
@@ -54,17 +52,41 @@
 @media only screen and (max-width: 900px) {
     .right-side{
         flex-direction: row;
-        padding: 4rem 1rem 2rem 1rem;
+        padding: 3rem 1rem 2rem;
+
     }
     .right-side-bar {
         flex-direction: column-reverse;
         margin: auto;
+        gap: 0rem;
+    }
+    .right-side-bar .freq{
+        top: -12px;
+        left: 45px;
+
+    }
+    .main .right-side-bar .right {
+        width: 60px;
+        height: 60px;
+
     }
 }
 /* Large screens */
 @media only screen and (min-width: 900px) {
     .right-side{
         flex-direction: column;
-        width: 200px;
+    }
+    .right-side-bar{
+        width: 142px;
+    }
+    .right-side-bar .freq{
+        top: -10px;
+        left: 60px;
+
+    }
+    .main .right-side-bar .right {
+        width: 80px;
+        height: 80px;
+
     }
 }
